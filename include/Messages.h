@@ -1,7 +1,7 @@
 /***************************************************************************
  * libRSF - A Robust Sensor Fusion Library
  *
- * Copyright (C) 2019 Chair of Automation Technology / TU Chemnitz
+ * Copyright (C) 2023 Chair of Automation Technology / TU Chemnitz
  * For more information see https://www.tu-chemnitz.de/etit/proaut/libRSF
  *
  * libRSF is free software: you can redistribute it and/or modify
@@ -38,7 +38,7 @@
 #include <string>
 #include <iostream>
 
-#define FILENAME (__builtin_strrchr(__FILE__, '/') ? __builtin_strrchr(__FILE__, '/') + 1 : __FILE__)
+#define FILENAME (std::string(__FILE__).substr(std::string(__FILE__).find_last_of('/') + 1))
 #define PRINT_ERROR(...) libRSF::PrintError(FILENAME, __FUNCTION__, __LINE__, __VA_ARGS__)
 #define PRINT_WARNING(...) libRSF::PrintWarning(FILENAME, __FUNCTION__, __LINE__, __VA_ARGS__)
 #define PRINT_LOGGING(...) libRSF::PrintLogging(FILENAME, __FUNCTION__, __LINE__, __VA_ARGS__)

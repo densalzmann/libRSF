@@ -1,7 +1,7 @@
 /***************************************************************************
  * libRSF - A Robust Sensor Fusion Library
  *
- * Copyright (C) 2019 Chair of Automation Technology / TU Chemnitz
+ * Copyright (C) 2023 Chair of Automation Technology / TU Chemnitz
  * For more information see https://www.tu-chemnitz.de/etit/proaut/libRSF
  *
  * libRSF is free software: you can redistribute it and/or modify
@@ -193,7 +193,7 @@ int CreateGraphAndSolve(std::vector<std::string> &Arguments,
 int main(int argc, char** argv)
 {
   /** init google logging for ceres */
-  google::InitGoogleLogging(argv[0]);
+  google::InitGoogleLogging(*argv);
 
   /** get command line arguments */
   std::vector<std::string> Arguments;

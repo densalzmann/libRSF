@@ -1,7 +1,7 @@
 /***************************************************************************
  * libRSF - A Robust Sensor Fusion Library
  *
- * Copyright (C) 2018 Chair of Automation Technology / TU Chemnitz
+ * Copyright (C) 2023 Chair of Automation Technology / TU Chemnitz
  * For more information see https://www.tu-chemnitz.de/etit/proaut/libRSF
  *
  * libRSF is free software: you can redistribute it and/or modify
@@ -53,7 +53,8 @@ namespace libRSF
   {
   public:
     SumMixture()
-    { Normalization_ = 0;
+    {
+      this->clear();
     }
 
     virtual ~SumMixture() = default;
@@ -131,8 +132,11 @@ namespace libRSF
     }
 
     MixtureType Mixture_;
-    double Normalization_;
+    double Normalization_{0};
   };
+
+  template <int Dim>
+  using SumMix = SumMixture<Dim, GaussianMixture<Dim>, false>;
 
   using SumMix1 = SumMixture<1, GaussianMixture<1>, false>;
   using SumMix2 = SumMixture<2, GaussianMixture<2>, false>;

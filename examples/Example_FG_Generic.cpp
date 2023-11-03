@@ -1,7 +1,7 @@
 /***************************************************************************
  * libRSF - A Robust Sensor Fusion Library
  *
- * Copyright (C) 2018 Chair of Automation Technology / TU Chemnitz
+ * Copyright (C) 2023 Chair of Automation Technology / TU Chemnitz
  * For more information see https://www.tu-chemnitz.de/etit/proaut/libRSF
  *
  * libRSF is free software: you can redistribute it and/or modify
@@ -36,7 +36,7 @@
 int main(int ArgC, char** ArgV)
 {
   (void)ArgC;
-  google::InitGoogleLogging(ArgV[0]);
+  google::InitGoogleLogging(*ArgV);
 
   /** create our own graph object */
   libRSF::FactorGraph SimpleGraph;

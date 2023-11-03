@@ -1,7 +1,7 @@
 /***************************************************************************
  * libRSF - A Robust Sensor Fusion Library
  *
- * Copyright (C) 2018 Chair of Automation Technology / TU Chemnitz
+ * Copyright (C) 2023 Chair of Automation Technology / TU Chemnitz
  * For more information see https://www.tu-chemnitz.de/etit/proaut/libRSF
  *
  * libRSF is free software: you can redistribute it and/or modify
@@ -89,7 +89,15 @@ namespace libRSF
     {
       case ErrorModelType::SC:
       case ErrorModelType::DCS:
-        Model.Parameter = ErrorModelNode["parameter"].as<double>();
+        if (ErrorTypeString == "sc1" || ErrorTypeString == "dcs1")
+        {
+          /** set default parameter */
+          Model.Parameter = 1.0;
+        }
+        else
+        {
+          Model.Parameter = ErrorModelNode["parameter"].as<double>();
+        }
         break;
 
       case ErrorModelType::GMM:
@@ -350,6 +358,13 @@ namespace libRSF
             Factor.Parameter(0) = YAMLConfig["factors"][nFactor]["threshold"].as<double>();
             Factor.Parameter(1) = YAMLConfig["factors"][nFactor]["std_dev"].as<double>();
             break;
+
+          case FactorType::LoopPose2:
+            Factor.Parameter.resize(4);
+            Factor.Parameter(0) = YAMLConfig["factors"][nFactor]["threshold"].as<double>();
+            Factor.Parameter.tail(3) = ParseVectorFromYAML_(YAMLConfig["factors"][nFactor]["std_dev"]);
+            break;
+
 
           default:
 //          PRINT_WARNING("Factor not handled: ", FactorTypeString);
