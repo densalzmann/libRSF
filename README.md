@@ -9,6 +9,11 @@ Main features are:
 - A set of predefined cost functions for various localization problems.
 - Several robust error models for non-Gaussian problems, including self-tuning Gaussian mixtures.
 
+
+## Issues
+ - While installDependences.bash for ceres: File STRINGS file "/usr/include/tbb/tbb_stddef.h" cannot be read. 
+    solved by: https://github.com/ceres-solver/ceres-solver/issues/669
+
 ## Build and Test Status
 
 | Platform     | Status  |
