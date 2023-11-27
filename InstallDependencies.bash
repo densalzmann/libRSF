@@ -44,10 +44,10 @@ install_if_not_exist ()
   if dpkg -s $1 &>/dev/null; then
     PKG_EXIST=$(dpkg -s $1 | grep "install ok installed")
     if [ -z "$PKG_EXIST" ]; then
-      sudo apt-get install $1 --assume-yes
+       apt-get install $1 --assume-yes
     fi
   else
-    sudo apt-get install $1 --assume-yes
+     apt-get install $1 --assume-yes
   fi
 }
 
@@ -89,7 +89,7 @@ fi
 git submodule update --init externals/ceres-solver
 cd externals/ceres-solver
 
-mkdir -p build && cd build
+mkdir -p _build && cd _build
 if [ "$linux_version" == "16.04" ] || [ "$linux_version" == "18.04" ]; then
     cmake -DCMAKE_INSTALL_PREFIX=../../install/ -DBUILD_EXAMPLES=OFF -DBUILD_TESTING=OFF -DSCHUR_SPECIALIZATIONS=OFF -DEigen3_DIR=../install/share/eigen3/cmake ..
 else
