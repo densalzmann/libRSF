@@ -35,7 +35,7 @@ endif()
 # set build options
 ##################################
 
-option(LIBRSF_BUILD_TEST "If enabled, the tests get build." OFF)
+option(LIBRSF_BUILD_TEST "If enabled, the tests get build." ON)
 
 ##################################
 # add dependencies

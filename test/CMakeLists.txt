@@ -61,3 +61,5 @@ package_add_test(Test_App_GNSS Test_App_GNSS.cpp TestUtils.cpp ../applications/A
 package_add_test(Test_App_SLAM Test_App_SLAM.cpp TestUtils.cpp ../applications/App_SLAM.cpp ../applications/AppPool_Sensors.cpp ../applications/AppPool_Init.cpp ../applications/AppPool_Adaptive.cpp ../applications/AppPool_Defines.cpp ../applications/AppPool_Utility.cpp)
 
 package_add_test(Test_App_Ranging_2D Test_App_Ranging_2D.cpp TestUtils.cpp ../applications/App_Ranging_2D.cpp ../applications/AppPool_Sensors.cpp ../applications/AppPool_Init.cpp ../applications/AppPool_Adaptive.cpp ../applications/AppPool_Defines.cpp ../applications/AppPool_Utility.cpp)
+
+package_add_test(Test_desa_Example_UWB_Pseudorange Test_desa_Example_UWB_Pseudorange.cpp TestUtils.cpp)
