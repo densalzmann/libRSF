@@ -1,4 +1,4 @@
-build
+build*
 build_test
 externals/install
 matlab/Results
